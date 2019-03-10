@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from catalog.models import Blogger, BlogPost
+from django.views import generic
+from django.urls import reverse, reverse_lazy
 
 # Create your views here.
 
@@ -17,3 +19,16 @@ def index(request):
 
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'index.html', context=context)
+
+class BloggerListView(generic.ListView):
+    model = Blogger
+
+class BloggerDetailView(generic.DetailView):
+    model = Blogger
+
+
+class BlogPostListView(generic.ListView):
+    model = BlogPost
+
+class BlogPostDetailView(generic.DetailView):
+    model = BlogPost

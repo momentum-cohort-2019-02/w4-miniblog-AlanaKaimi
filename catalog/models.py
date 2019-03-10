@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime
+from django.urls import reverse
 
 # Create your models here.
 
@@ -18,7 +19,7 @@ class Blogger(models.Model):
 
     def get_absolute_url(self):
         """Returns the url to access a particluar author instance"""
-        return reverse('blogger-detil', args=[str(self.id)])
+        return reverse('blogger-detail', args=[str(self.id)])
 
     def __str__(self):
         """String for representing the Model object"""
