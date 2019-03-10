@@ -2,6 +2,8 @@ from django.shortcuts import render
 from catalog.models import Blogger, BlogPost
 from django.views import generic
 from django.urls import reverse, reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import permission_required
 
 # Create your views here.
 
@@ -22,6 +24,7 @@ def index(request):
 
 class BloggerListView(generic.ListView):
     model = Blogger
+    paginate_by = 3
 
 class BloggerDetailView(generic.DetailView):
     model = Blogger
@@ -29,6 +32,7 @@ class BloggerDetailView(generic.DetailView):
 
 class BlogPostListView(generic.ListView):
     model = BlogPost
+    paginate_by = 3
 
 class BlogPostDetailView(generic.DetailView):
     model = BlogPost

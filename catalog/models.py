@@ -23,7 +23,7 @@ class Blogger(models.Model):
 
     def __str__(self):
         """String for representing the Model object"""
-        return f'{self.last_name}, {self.first_name}'
+        return f'{self.user_name}'
 
 
 class BlogPost(models.Model):
