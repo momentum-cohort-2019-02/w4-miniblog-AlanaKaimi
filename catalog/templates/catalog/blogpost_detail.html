@@ -9,7 +9,6 @@
     <p>{{ blogpost.content }}</p>
 
     <hr>
-    <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=blogpost.pk %}">Add comment</a>
     {% for comment in blogpost.comments.all %}
         <div class="comment">
             {{ comment.created }}

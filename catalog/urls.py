@@ -8,5 +8,4 @@ urlpatterns = [
     path('blogger/<int:pk>', views.BloggerDetailView.as_view(), name='blogger-detail'),
     path('blogpost/<int:pk>', views.BlogPostDetailView.as_view(), name='blogpost-detail'),
     path('comment/<int:pk>', views.Comment.as_view(), name='comments'),
-    path(r'blogpost/<int:pk>/comment/', views.add_comment_to_post, name='add-comment-to-post'),
 ]

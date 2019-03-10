@@ -40,16 +40,3 @@ class BlogPostDetailView(generic.DetailView):
 
 class Comment(generic.ListView):
     model = Comment
-
-def add_comment_to_post(request, pk):
-    post = get_object_or_404(BlogPost, pk=pk)
-    if request.method == "POST":
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.post = post
-            comment.save()
-        return redirect('blogpost-detail', pk=post.pk)
-    else:
-        form = CommentForm()
-    return render(request, 'add_comment_to_post.html', {'form': form})
