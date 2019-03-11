@@ -9,7 +9,12 @@
         {% load static %}
         <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     </head>
-    <body>
+    <body class="body">
+        
+        <div class="header">
+            <h2>Mini Blog</h2>
+        </div>
+
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-2">
@@ -28,8 +33,9 @@
                 {% endblock %}
                 </div>
                 <div class="col-sm-10">
-                {% block content %}{% endblock %}
-                
+                    <div class="content">
+                        {% block content %}{% endblock %}
+                    </div>
                 {% block pagination %}
                     {% if is_paginated %}
                     <div class="pagination">

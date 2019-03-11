@@ -5,14 +5,19 @@
     <p><strong>Post date </strong>{{ blogpost.post_date }}</p>
 
     <p><strong>Blogger: </strong><a href="{% url 'blogger-detail' blogpost.blogger.pk %}">{{  blogpost.blogger }}</a></p>
-
-    <p>{{ blogpost.content }}</p>
+    
+    <div class="post-content">
+        <p>{{ blogpost.content }}</p>
+    </div>
 
     <hr>
+    <p><strong>Comments:</strong></p>
     {% for comment in blogpost.comments.all %}
         <div class="comment">
+            <div class="comment-date">
             {{ comment.created }}
             {{ comment.user }}
+            </div>
             {{ comment.body|linebreaks }}
         </div>
     {% empty %}
